@@ -38,11 +38,9 @@ public class DevSSplashScreen {
 			for (long j = 0; j < 50000; ++j) {
 				String poop = " " + (j + i);
 			}
-			// run either of these two -- not both
 			screen.setProgress("Loading WSO2 Dev Studio" + i, i); // progress bar with a message
 		}
 		splashScreenDestruct();
-		// System.exit(0);
 	}
 
 	private void splashScreenDestruct() {
@@ -55,8 +53,7 @@ public class DevSSplashScreen {
 		screen = new SplashDevScreen(splashImage);		
 		screen.setLocationRelativeTo(null);
 		screen.setProgressMax(1000);		
-		screen.setScreenVisible(true);
-		
+		screen.setScreenVisible(true);		
 	}
 
 	public static void main(String[] args) {
