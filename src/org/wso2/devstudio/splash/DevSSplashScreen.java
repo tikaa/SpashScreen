@@ -16,14 +16,19 @@
 
 package org.wso2.devstudio.splash;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class DevSSplashScreen {
-
+public class DevSSplashScreen {	
+    
 	SplashDevScreen screen;
-
+	private final static Logger LOGGER = Logger.getLogger(DevSSplashScreen.class.getName());
+	
+	//this is sample class used to generate the work in progress need to replace with the actual work in progress methods in integration to the code
 	public DevSSplashScreen() {
 		// initialize the splash screen
 		splashScreenInit();
@@ -34,7 +39,7 @@ public class DevSSplashScreen {
 				String poop = " " + (j + i);
 			}
 			// run either of these two -- not both
-			screen.setProgress("Loading Dev Studio" + i, i); // progress bar with a message
+			screen.setProgress("Loading WSO2 Dev Studio" + i, i); // progress bar with a message
 		}
 		splashScreenDestruct();
 		// System.exit(0);
@@ -46,24 +51,25 @@ public class DevSSplashScreen {
 
 	private void splashScreenInit() {
 		ImageIcon splashImage = new ImageIcon(this.getClass().getResource(
-				"splashscreen.jpg"));
-		screen = new SplashDevScreen(splashImage);
+				"SplashWindow.png"));
+		screen = new SplashDevScreen(splashImage);		
 		screen.setLocationRelativeTo(null);
-		screen.setProgressMax(1000);
+		screen.setProgressMax(1000);		
 		screen.setScreenVisible(true);
+		
 	}
 
-	public static void StartUp() {
+	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (ClassNotFoundException e) {
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, "Class not found Exception");
 		} catch (InstantiationException e) {
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, "Initiation Exception");
 		} catch (IllegalAccessException e) {
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, "Illegal Exception");
 		} catch (UnsupportedLookAndFeelException e) {
-			System.out.println(e);
+			LOGGER.log(Level.SEVERE, "Unsupported Look and Feel Exception");
 		}
 		new DevSSplashScreen();
 	}

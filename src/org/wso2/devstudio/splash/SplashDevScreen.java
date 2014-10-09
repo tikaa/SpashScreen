@@ -43,7 +43,9 @@ public class SplashDevScreen extends JFrame {
 		imageLabel.setIcon(imageIcon);
 		this.getContentPane().setLayout(borderLayout1);
 		southPanel.setLayout(southPanelFlowLayout);
-		southPanel.setBackground(Color.BLACK);
+		southPanel.setBackground(Color.WHITE);
+		setUndecorated(true);
+		getRootPane().setWindowDecorationStyle(JRootPane.NONE);
 		this.getContentPane().add(imageLabel, BorderLayout.CENTER);
 		this.getContentPane().add(southPanel, BorderLayout.SOUTH);
 		southPanel.add(progressBar, null);
@@ -60,7 +62,7 @@ public class SplashDevScreen extends JFrame {
 			public void run() {
 				progressBar.setValue(theProgress);
 			}
-		});
+		});		
 	}
 
 	public void setProgress(String message, int progress) {
